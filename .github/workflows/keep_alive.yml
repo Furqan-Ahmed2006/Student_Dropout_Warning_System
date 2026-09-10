@@ -2,19 +2,20 @@ name: Streamlit Keep-Alive Automation
 
 on:
   schedule:
-
-    - cron: '*/10 * * * *'
+    - cron: '0 * * * *'
   workflow_dispatch: 
+
 jobs:
   ping-app:
     runs-on: ubuntu-latest
+    timeout-minutes: 75
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -29,4 +30,10 @@ jobs:
         env:
           STREAMLIT_APP_URL: ${{ secrets.STREAMLIT_APP_URL }}
         run: |
-          python keep_alive.py
+          for i in {1..12}; do
+            echo "Ping $i/12"
+            python keep_alive.py
+            if [ $i -lt 12 ]; then
+              sleep 300
+            fi
+          done
