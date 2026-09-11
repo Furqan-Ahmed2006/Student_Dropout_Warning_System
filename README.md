@@ -8,7 +8,7 @@ An end-to-end Machine Learning web application designed to predict student attri
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://YOUR_LIVE_APP_URL)
 
-👉 **[Click Here to Access the Live Dashboard](https://YOUR_LIVE_APP_URL)**
+👉 https://studentdropoutwarningsystem-nzwrgriktyakulxespnpxm.streamlit.app/
 
 ---
 
